@@ -1,4 +1,3 @@
-
 require 'presentator'
 
 app = Presentator::App.new do
