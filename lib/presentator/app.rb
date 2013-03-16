@@ -2,6 +2,8 @@ require 'curses'
 
 module Presentator
   class App
+    include Curses
+
     attr_accessor :slides
 
     def initialize(opts={}, &blk)
@@ -28,6 +30,8 @@ module Presentator
         crmode
         refresh
         yield
+        # just before leaving!
+        getch
       ensure
         close_screen
       end
