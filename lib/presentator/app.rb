@@ -14,7 +14,10 @@ module Presentator
     def present!
       raise NoContentError if @slides.empty?
       init do
-        @slides.each {|s| s.show}
+        @slides.each_with_index do |slide, index|
+          show_slide_number index
+          slide.show
+        end
       end
     end
 
@@ -35,6 +38,16 @@ module Presentator
       ensure
         close_screen
       end
+    end
+
+    def show_slide_number(id)
+      pos = [1, 8, 2, 2]
+
+      win = Window.new(*pos)
+      win.setpos(1, 0)
+      win.addstr("#{id+1}/#{@slides.length}")
+      win.refresh
+      win.close
     end
   end
 end
