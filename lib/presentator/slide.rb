@@ -18,6 +18,7 @@ module Presentator
       @elements.each_with_index do |element, index|
         show_text element, offset: -index*2
       end
+      getch
     end
 
     private
