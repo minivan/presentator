@@ -19,6 +19,8 @@ module Presentator
         show_text element, offset: -index*2
       end
       getch
+      clear
+      refresh
     end
 
     private
