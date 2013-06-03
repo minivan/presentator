@@ -1,4 +1,3 @@
-
 module Presentator
   class NoContentError < StandardError
     def initialize

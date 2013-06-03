@@ -20,12 +20,30 @@ describe Presentator::App do
         slide do
           text "Hello, world"
         end
+        slide do
+          list do
+            text 'test'
+            text 'test'
+          end
+        end
       end
     end
 
+    let (:slides) { @app.slides }
+
     it "must have slides with some content" do
-      @app.slides.wont_be_empty
+      slides.wont_be_empty
+    end
+
+    it 'has a slide that contains only text' do
+      slides.first.elements.count.must_equal 1
+      slides.first.elements.first.class.must_equal Elements::Text
+    end
+
+    it 'has a slide that contains a list' do
+      slides[1].elements.count.must_equal 1
     end
   end
+
 end
 

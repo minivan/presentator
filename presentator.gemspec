@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Ivan Zarea"]
   gem.email         = ["zarea.ion@gmail.com"]
   gem.description   = %q{Create presentations in your terminal}
-  gem.summary       = %q{Easy to use library for creating simple presentations for the terminal.}
+  gem.summary       = %q{Easy to use library for creating simple presentations that can be displayed in the terminal.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
