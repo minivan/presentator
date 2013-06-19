@@ -1,16 +1,18 @@
 class Presentator::Text < Presentator::Base
-  attr_accessor :message
+  attr_accessor :message, :options
 
-  def initialize(message)
+  def initialize(message, opts = {})
+    @options = opts
     @message = message
   end
 
-  def show(params = {})
-    offset = params[:offset] || 0
-    position = params[:position] || :center
+  def show(opts = {})
+    opts.merge!(options)
+    offset = opts[:offset] || 0
+    position = opts[:position] || :center
 
     width = message.length + 6
-    pos = [1, width]
+    pos = [0, width]
 
     case position
     when :top
@@ -26,5 +28,9 @@ class Presentator::Text < Presentator::Base
     win.close
 
     win
+  end
+
+  def height
+    2
   end
 end
