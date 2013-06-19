@@ -37,11 +37,19 @@ describe Presentator::App do
 
     it 'has a slide that contains only text' do
       slides.first.elements.count.must_equal 1
-      slides.first.elements.first.class.must_equal Elements::Text
     end
 
     it 'has a slide that contains a list' do
       slides[1].elements.count.must_equal 1
+    end
+
+    it 'has a slide that contains a list that contains text' do
+      # YO DAWG
+      slides[1].elements.first.elements.count.must_equal 2
+    end
+
+    it 'correctly computes the height of the elements' do
+      slides[1].height.must_equal 2
     end
   end
 
